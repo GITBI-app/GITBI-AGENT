@@ -1,0 +1,13 @@
+import sys
+from pathlib import Path
+
+# Asegurar que la raíz del proyecto está en sys.path para poder importar `app`
+project_root = Path(__file__).resolve().parent.parent
+if str(project_root) not in sys.path:
+	sys.path.insert(0, str(project_root))
+
+from app.services.files import obtener_archivos_proyecto
+
+archivos = obtener_archivos_proyecto(r"D:\Proyectos\GITBI\proyecto pbip")
+
+print(archivos)
